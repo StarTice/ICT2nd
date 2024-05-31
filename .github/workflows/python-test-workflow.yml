@@ -18,9 +18,8 @@ jobs:
       - name: リスト
         run: |
           flake8 . --count --show-source --statistics --exclude=./test_*.py
-      - name: データの一覧
-        run: |
-          ls ./fun-*.txt
+      - name: データファイルの一覧
+        run: ls ./fun-*.txt
       - name: Test
         run: |
-          pytest test_*.py
+          pytest test.py –-junitxml=’レポートファイル名.xml’
