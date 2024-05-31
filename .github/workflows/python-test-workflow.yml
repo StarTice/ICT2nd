@@ -18,13 +18,13 @@ jobs:
       - name: リスト
         run: |
           flake8 . --count --show-source --statistics --exclude=./test_*.py
-      - name: データファイルの一覧
-        run: ls ./fun-*.txt
+      - name: テストファイルの一覧
+        run: ls ./test-*.py
       - name: Test
         run: |
           pytest test.py –-junitxml=’test-report.xml’
       - name: レポートの保存
         uses: actions/upload-artifact@v4.3.3
         with: 
-        name: artifact一覧に表示される成果物名
-        path: '成果物として保存したいファイルのパス'
+        name: test-report
+        path: './test-report.xml'
