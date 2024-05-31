@@ -22,4 +22,9 @@ jobs:
         run: ls ./fun-*.txt
       - name: Test
         run: |
-          pytest test.py –-junitxml=’レポートファイル名.xml’
+          pytest test.py –-junitxml=’test-report.xml’
+      - name: レポートの保存
+        uses: actions/upload-artifact@v4.3.3
+        with: 
+        name: artifact一覧に表示される成果物名
+        path: '成果物として保存したいファイルのパス'
